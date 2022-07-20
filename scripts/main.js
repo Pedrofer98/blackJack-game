@@ -24,39 +24,41 @@ window.addEventListener("DOMContentLoaded", () => {
 });
  
 const buttons = document.querySelector(".buttons");
-const dealBut = document.getElementById("deal-button");
-const hitBut = document.getElementById("hit-button");
-const standBut = document.getElementById("stand-button");
+const dealButton = document.getElementById("deal-button");
+const hitButton = document.getElementById("hit-button");
+const standButton = document.getElementById("stand-button");
 
 
-function cardToHand (card,receiver) {
+function addCardToHand (pathToCardImg,receiver) {
   const cardImg = document.createElement("img");
-  cardImg.setAttribute('src',card);
+  cardImg.setAttribute('src',pathToCardImg);
   receiver.append(cardImg);
 }
 
 
-dealBut.addEventListener("click", () => {
-  cardToHand("./images/9_of_diamonds.png",playerHand)
+dealButton.addEventListener("click", () => {
+  addCardToHand("./images/9_of_diamonds.png",playerHand);
 
-  const cardImg2 = document.createElement("img");
-  cardImg2.setAttribute('src','./images/10_of_hearts.png');
-  dealerHand.append(cardImg2);
+  addCardToHand("./images/10_of_hearts.png",dealerHand);
   
-  const cardImg3 = document.createElement("img");
-  cardImg3.setAttribute('src','./images/10_of_spades.png');
-  playerHand.append(cardImg3);
+  addCardToHand('./images/10_of_spades.png',playerHand);
+  // const cardImg3 = document.createElement("img");
+  // cardImg3.setAttribute('src','./images/10_of_spades.png');
+  // playerHand.append(cardImg3);
 
-  const cardImg4 = document.createElement("img");
-  cardImg4.setAttribute('src',"./images/10_of_diamonds.png");
-  dealerHand.append(cardImg4);
+  addCardToHand("./images/10_of_diamonds.png",dealerHand);
+  // const cardImg4 = document.createElement("img");
+  // cardImg4.setAttribute('src',"./images/10_of_diamonds.png");
+  // dealerHand.append(cardImg4);
 })
  
-hitBut.addEventListener("click", () => {
-  const cardImg = document.createElement("img");
-  cardImg.setAttribute('src',"./images/10_of_diamonds.png");
-  playerHand.append(cardImg);
-  const cardImg2 = document.createElement("img");
-  cardImg2.setAttribute('src',"./images/10_of_diamonds.png")
-  dealerHand.append(cardImg2);
+hitButton.addEventListener("click", () => {
+  addCardToHand("./images/10_of_diamonds.png",playerHand);
+  // const cardImg = document.createElement("img");
+  // cardImg.setAttribute('src',"./images/10_of_diamonds.png");
+  // playerHand.append(cardImg);
+addCardToHand("./images/10_of_diamonds.png",dealerHand);
+  // const cardImg2 = document.createElement("img");
+  // cardImg2.setAttribute('src',"./images/10_of_diamonds.png")
+  // dealerHand.append(cardImg2);
 })
