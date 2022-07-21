@@ -29,16 +29,22 @@ const hitButton = document.getElementById("hit-button");
 const standButton = document.getElementById("stand-button");
 
 
-function addCardToHand (pathToCardImg,receiver) {
+function addCardToHand (pathToCardImg,receiver) { // creating the function ( executable code block)
   const cardImg = document.createElement("img");
   cardImg.setAttribute('src',pathToCardImg);
   receiver.append(cardImg);
+  deck.pop(math.random());
+  const randomCardTobeRemovedFromDeck =deck.pop(math.random());
+playerHand.push(randomCardTobeRemovedFromDeck)
+  
+
+
 }
 
 
 dealButton.addEventListener("click", () => {
   addCardToHand("./images/9_of_diamonds.png",playerHand);
-
+// 
   addCardToHand("./images/10_of_hearts.png",dealerHand);
   
   addCardToHand('./images/10_of_spades.png',playerHand);
@@ -62,3 +68,4 @@ addCardToHand("./images/10_of_diamonds.png",dealerHand);
   // cardImg2.setAttribute('src',"./images/10_of_diamonds.png")
   // dealerHand.append(cardImg2);
 })
+
